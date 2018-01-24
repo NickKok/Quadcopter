@@ -23,7 +23,7 @@ This is an Arduino YUN application developed during 2017.
 ## Deployment
 
 To deploy the application, you need to set up Arduino YUN with a router or an access point like a mobile phone.
-Then you have to put the "io" code at the Arduino YUN and the www folder at the sd card. After that you have to open a browser that the URL of "http://10.2.110.145/sd/" or at the name that you might had give at your Arduino like "http://myarduino.local/".
+Then you have to put the "io" code at the Arduino YUN and the www folder at the sd card. After that you have to open a browser at the name that you might had give at your Arduino like "http://myarduino.local/sd".
 
 
 The application is in a very early age of development but functional.
