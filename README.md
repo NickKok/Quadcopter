@@ -1,6 +1,6 @@
 # Quadcopter
 
-![quadcopter_image]
+![quadcopter_image](https://github.com/NickKok/Quadcopter/blob/master/quadcopter_image.jpg)
 
 ## Description
 
