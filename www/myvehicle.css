@@ -1,0 +1,62 @@
+
+body{
+/*  background-image: url("wallpaper.jpg");
+  margin:auto;*/
+   background-color:  #ccccff;
+}
+
+div.Name{
+
+    position:absolute;
+    bottom:0px;
+    margin-left: 35%;
+
+}
+
+div.Camera_in{
+    position:absolute;
+    margin-left:0%;
+    top:20%;
+
+}
+
+div.Sensors{
+    position:absolute;
+    right:10%;
+    top:10%;
+
+
+}
+div.FlightImage{
+  background:url('flightsimulator.jpg') no-repeat;
+  width:100%;
+  min-height:209px;
+   background-size: cover;
+    max-width: 1900px;
+}
+
+div.Buttons{
+    position:absolute;
+    margin-left:0%;
+    top:20%;
+
+}
+
+div.Stream,iframe.noScrolling{
+    width: 700px;
+    height: 500px;
+    overflow: hidden;
+    display:block;
+    margin-right:auto;
+    margin-left: auto;
+    bottom:300px;
+}
+
+div.image{
+    position: absolute;
+    bottom:0px;
+    right:30%;
+
+}
+
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title>Flight Controller</title>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="myvehicle.css">
+      <script type="text/javascript" src="zepto.min.js"></script>
+
+      <script type="text/javascript">
+
+
+/* With those two functions the client sends to the server a new API
+        which called arduino. So after "/arduino" we send the command to the server. */
+        //This function checks if a specific button was pressed.
+        function CheckKeyCode1()
+        {
+            if(event.keyCode==38){
+                $('#content').load('/arduino/forward');
+            }
+            else if(event.keyCode==39){
+                $('#content').load('/arduino/right');
+            }
+            else if(event.keyCode==37){
+                $('#content').load('/arduino/left');
+            }
+            else if(event.keyCode==40){
+                $('#content').load('/arduino/reverse');
+            }
+            else if(event.keyCode==32){
+                $('#content').load('/arduino/arm');
+
+            }
+            else if(event.keyCode==87){
+              var xhttp = new XMLHttpRequest();
+              xhttp.open("GET", "http://10.2.110.145/arduino/up", true);
+              xhttp.send();
+
+            }
+            else if(event.keyCode==83){
+                $('#content').load('/arduino/down');
+
+            }
+            else if(event.keyCode==81){
+                //load arduino sensors
+
+       var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("flame").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://10.2.110.145/arduino/flame", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("noise").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://10.2.110.145/arduino/microphone", true);
+        xhttp.send();
+  
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("temp").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://10.2.110.145/arduino/temp", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("humidity").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://10.2.110.145/arduino/humidity", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("height").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "http://10.2.110.145/arduino/distance", true);
+        xhttp.send();
+
+
+
+}
+ }
+
+</script>
+  </head>
+  <body onkeydown="CheckKeyCode1()">
+    <span id="content"></span>
+    <div class="Buttons">
+        <img src="buttons.png">
+  </div>
+
+
+    <div class="Stream">
+      <!--In this div the user can watch the environment around the quadcopter.-->
+      <iframe src="http://10.2.110.145:8080/stream_simple.html" frameBorder="0" class="noScrolling">
+        <p>Your browser does not support iframes.</p>
+      </iframe>
+
+    </div>
+    <div class="Sensors">
+      <table style="width:200px;height:300px">
+    <tr>
+      <td><img height="40px" width="40px" src="noise.png"></td>
+      <td>Noise:</td>
+      <td><div id="noise"></div></td>
+    </tr>
+    <tr>
+      <td><img height="40px" width="40px" src="burn.png"></td>
+      <td>Flame:</td>
+      <td><div id="flame"></div></td>
+    </tr>
+    <tr>
+        <td><img height="40px" width="40px" src="temp.png"></td>
+        <td>Temperature:</td>
+        <td><div id="temp"></div></td>
+    </tr>
+      <tr>
+    <td><img height="40px" width="40px" src="hymidity.png"></td>
+    <td>Hymidity:</td>
+    <td><div id="humidity"></div></td>
+  </tr>
+        <tr>
+          <td><img height="40px" width="40px" src="height.png"></td>
+          <td>Height:</td>
+          <td><div id="height"></div></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="FlightImage">
+
+  </div>
+</body>
+</html>
